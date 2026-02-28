@@ -60,6 +60,16 @@ public class SecurityConfiguration {
                     .requestMatchers(HttpMethod.DELETE, "/api/v1/libros/**")
                         .hasAuthority(Role.ROLE_ADMIN.toString())
 
+                    // reglas para el recurso comidas (misma política que libros)
+                    .requestMatchers(HttpMethod.GET, "/api/v1/comidas/**")
+                        .hasAnyAuthority(Role.ROLE_USER.toString(), Role.ROLE_ADMIN.toString())
+                    .requestMatchers(HttpMethod.POST, "/api/v1/comidas/**")
+                        .hasAuthority(Role.ROLE_ADMIN.toString())
+                    .requestMatchers(HttpMethod.PUT, "/api/v1/comidas/**")
+                        .hasAuthority(Role.ROLE_ADMIN.toString())
+                    .requestMatchers(HttpMethod.DELETE, "/api/v1/comidas/**")
+                        .hasAuthority(Role.ROLE_ADMIN.toString())
+
                     .requestMatchers("/api/v1/users/**").hasAuthority("ROLE_ADMIN")
 
                     .anyRequest().authenticated()
