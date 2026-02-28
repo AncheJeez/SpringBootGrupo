@@ -237,7 +237,7 @@
   async function request(path, { method = "GET", body = null, auth = true } = {}) {
     const url = apiBase() + path;
     const headers = {};
-    if (body != null) headers["Content-Type"] = "application/json";
+    if (body != null) headers["Content-Type"] = "application-test.properties/json";
     if (auth && token) headers["Authorization"] = `Bearer ${token}`;
 
     const res = await fetch(url, {
@@ -254,7 +254,7 @@
 
     const ct = res.headers.get("content-type") || "";
     let data;
-    if (ct.includes("application/json")) data = await res.json().catch(() => null);
+    if (ct.includes("application-test.properties/json")) data = await res.json().catch(() => null);
     else data = await res.text().catch(() => "");
 
     if (!res.ok) {
