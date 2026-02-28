@@ -10,7 +10,7 @@ import com.dwes.security.entities.Prestamo;
 import com.dwes.security.entities.Usuario;
 
 public interface LibrosService {
-
+    
     Libro agregarLibro(Libro libro);
 
     Page<Libro> listarTodosLosLibros(Pageable pageable);

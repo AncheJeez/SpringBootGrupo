@@ -34,6 +34,9 @@ public class DemoDataInitializer implements CommandLineRunner {
     private LibroRepository libroRepository;
 
     @Autowired
+    private com.dwes.security.repository.ComidaRepository comidaRepository;
+
+    @Autowired
     private PasswordEncoder passwordEncoder;
 
     // Variables de configuración
@@ -49,6 +52,9 @@ public class DemoDataInitializer implements CommandLineRunner {
         // Inicializar libros
         inicializarLibros();
 
+        // Inicializar comidas
+        inicializarComidas();
+
         // Inicializar usuarios
         inicializarUsuarios();
 
@@ -56,6 +62,7 @@ public class DemoDataInitializer implements CommandLineRunner {
         log.info("DATOS DE DEMOSTRACIÓN CARGADOS");
         log.info("Total usuarios: {}", usuarioRepository.count());
         log.info("Total libros: {}", libroRepository.count());
+        log.info("Total comidas: {}", comidaRepository.count());
         log.info("========================================");
     }
 
@@ -85,6 +92,31 @@ public class DemoDataInitializer implements CommandLineRunner {
             
         } catch (Exception e) {
             log.error("✗ Error al inicializar libros: {}", e.getMessage(), e);
+        }
+    }
+
+    /**
+     * Inicializa la base de datos con comidas de prueba.
+     */
+    private void inicializarComidas() {
+        try {
+            if (BORRAR_DATOS_EXISTENTES) {
+                comidaRepository.deleteAll();
+                log.info("✓ Comidas existentes eliminadas");
+            }
+
+            Faker faker = new Faker(new Locale("es"));
+            String[] paises = {"España", "Italia", "México", "Japón", "India", "Francia"};
+
+            for (int i = 0; i < CANTIDAD_LIBROS_DEMO; i++) {
+                com.dwes.security.entities.Comida comida = new com.dwes.security.entities.Comida();
+                comida.setNombre(faker.food().dish());
+                comida.setPaisOrigen(paises[i % paises.length]);
+                comidaRepository.save(comida);
+            }
+            log.info("✓ {} comidas de demostración creadas", CANTIDAD_LIBROS_DEMO);
+        } catch (Exception e) {
+            log.error("✗ Error al inicializar comidas: {}", e.getMessage(), e);
         }
     }
 

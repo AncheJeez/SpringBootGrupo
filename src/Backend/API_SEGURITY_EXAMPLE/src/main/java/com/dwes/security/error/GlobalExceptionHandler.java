@@ -12,6 +12,7 @@ import org.springframework.web.servlet.NoHandlerFoundException;
 
 import com.dwes.security.dto.response.error.ErrorDetailsResponse;
 import com.dwes.security.error.exception.LibroNotFoundException;
+import com.dwes.security.error.exception.ComidaNotFoundException;
 
 
 @ControllerAdvice
@@ -45,6 +46,20 @@ public class GlobalExceptionHandler {
             ex.getMessage(),
             request.getDescription(false));
 
+        return new ResponseEntity<>(errorDetails, HttpStatus.NOT_FOUND);
+    }
+    
+    /**
+     * ###################################################
+     * #        Comida 404  Not Found Exception          ##
+     * ###################################################
+     */
+    @ExceptionHandler(ComidaNotFoundException.class)
+    public ResponseEntity<ErrorDetailsResponse> handleComidaNotFoundException(ComidaNotFoundException ex, WebRequest request) {
+        ErrorDetailsResponse errorDetails = new ErrorDetailsResponse(
+            new Date(),
+            ex.getMessage(),
+            request.getDescription(false));
         return new ResponseEntity<>(errorDetails, HttpStatus.NOT_FOUND);
     }
     /**
