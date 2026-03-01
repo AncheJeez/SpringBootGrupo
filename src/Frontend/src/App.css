@@ -1,0 +1,152 @@
+/* ─── TOKENS ORIGINALES ─── */
+:root {
+  --ink:      #0f0e0d;
+  --paper:    #f5f2ee;
+  --cream:    #ede8e1;
+  --accent:   #c8401e;
+  --muted:    #7a7268;
+  --border:   #d6d0c8;
+  --card:     #fffdfb;
+  --mono:     'DM Mono', monospace;
+  --serif:    'DM Serif Display', serif;
+  --sans:     'DM Sans', sans-serif;
+  --radius:   4px;
+  --shadow:   0 2px 12px rgba(15,14,13,.08);
+}
+
+.custom-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  background: var(--card);
+}
+
+.custom-table th {
+  text-align: left;
+  padding: 1rem;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border-bottom: 2px solid var(--ink);
+  color: var(--muted);
+}
+
+.custom-table td {
+  padding: 1rem;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.9rem;
+}
+
+.custom-table tr:hover {
+  background: var(--paper);
+}
+
+.content-header {
+  margin-bottom: 2rem;
+}
+
+.content-header h1 {
+  font-size: 2.2rem;
+  margin: 0;
+}
+
+/* Centrado total de la página */
+.login-page-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: var(--paper);
+  font-family: var(--sans);
+  margin: 0;
+}
+
+.login-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  width: 100%;
+  max-width: 480px;
+  overflow: hidden;
+  animation: fadeIn .25s ease forwards;
+}
+
+.login-header {
+  background: var(--ink);
+  padding: 1.5rem;
+  color: #fff;
+}
+
+.login-header h2 { 
+  font-family: var(--serif); 
+  font-size: 1.6rem; 
+  margin: 0 0 .3rem 0; 
+}
+
+.login-header p { 
+  font-size: .8rem; 
+  color: rgba(255,255,255,.5); 
+  margin: 0;
+}
+
+.login-body { 
+  padding: 1.5rem; 
+  display: flex; 
+  flex-direction: column; 
+  gap: 1.2rem; 
+}
+
+.form-group { display: flex; flex-direction: column; gap: .4rem; }
+
+.form-label { 
+  font-size: .75rem; 
+  font-weight: 600; 
+  text-transform: uppercase; 
+  letter-spacing: .06em; 
+  color: var(--muted); 
+}
+
+.form-control {
+  padding: .55rem .8rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-family: var(--sans);
+  font-size: .9rem;
+  background: var(--paper);
+  color: var(--ink);
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.form-control:focus {
+  border-color: var(--ink);
+}
+
+.btn-primary {
+  padding: .75rem 1.2rem;
+  background: var(--ink);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius);
+  font-family: var(--sans);
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+}
+
+.form-text { 
+  font-size: .75rem; 
+  color: var(--muted); 
+  margin-top: .2rem; 
+}
+
+@keyframes fadeIn { 
+  from { opacity: 0; transform: translateY(8px); } 
+  to { opacity: 1; transform: translateY(0); } 
+}

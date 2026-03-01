@@ -1,0 +1,9 @@
+body{margin:0;font-family:Arial;background:#0f172a;color:#e5e7eb}
+.layout{display:flex;height:100vh}
+.sidebar{width:220px;background:#020617;padding:20px}
+.sidebar a{display:block;color:#93c5fd;margin:10px 0;text-decoration:none}
+.content{flex:1;padding:20px}
+.login{max-width:300px;margin:100px auto}
+input,button{width:100%;margin:5px 0;padding:8px}
+table{width:100%;border-collapse:collapse}
+th,td{border-bottom:1px solid #334155;padding:8px}
