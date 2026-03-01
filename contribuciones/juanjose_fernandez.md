@@ -1,0 +1,1 @@
+He implementado la seguridad al nuevo recurso de Comida asegurando que no entren usuarios sin rol y que para cada ruta se utilize su debido rol y no otro, ademas de mandar su debido error como 401 o 403 en la peticion.
